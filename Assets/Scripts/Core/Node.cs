@@ -8,8 +8,8 @@ namespace EvoSim.Core
         private Rigidbody2D _rb = null;
         private Muscle _muscle = null;
 
-        [SerializeField, NaughtyAttributes.MinMaxSlider(0f, 3f)]
-        private Vector2 _frictionMinMax = new Vector2(0.25f, 1.25f);
+        [SerializeField, NaughtyAttributes.MinMaxSlider(1f, 3f)]
+        private Vector2 _frictionRange = new Vector2(1, 1.25f);
 
         [SerializeField] private float _friction = 0.5f;
         
@@ -17,14 +17,15 @@ namespace EvoSim.Core
 
         private void Awake() => _rb = GetComponent<Rigidbody2D>();
 
-        private void Start() => _friction = Random.Range(_frictionMinMax.x, _frictionMinMax.y);
+        private void Start() => _friction = Random.Range(_frictionRange.x, _frictionRange.y);
 
         private void FixedUpdate()
         {
             if(_muscle == null)
                 return;
 
-            var force = new Vector2(_muscle.Strength * _friction * _forceDir, 0);
+            var force = new Vector2((_muscle.Strength * _forceDir) / _friction, 0);
+            print($"{gameObject.name} -> {force}");
             _rb.AddForce(force);
         }
 
