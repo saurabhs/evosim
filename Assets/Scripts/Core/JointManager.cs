@@ -21,7 +21,7 @@ namespace EvoSim.Core
             for(var i = 0; i < _joints.Length; i++)
             {
                 var node = _joints[i].connectedBody.GetComponent<Node>();
-                node.SetJointProperty(gameObject.GetComponent<Muscle>(), (_joints[i].anchor.x < 0 ? 1 : -1));
+                node.SetJointProperty(gameObject.GetComponent<Muscle>(), (_joints[i].anchor.x < 0 ? -1 : 1));
             }
         }
     }

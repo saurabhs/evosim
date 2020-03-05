@@ -5,13 +5,13 @@ namespace EvoSim.Core
     [RequireComponent(typeof(Clock))]
     public class Muscle : MonoBehaviour
     {
+        private Clock _clock;
+
         [SerializeField] private float _length = 0.4f;
         [SerializeField] private float _contractedLength = 0.2f;
         [SerializeField, NaughtyAttributes.MinMaxSlider(5, 50)] private Vector2 _strengthRange = new Vector2(5, 25);
 
         [NaughtyAttributes.ReadOnly] private float _strength = 0f;
-
-        private Clock _clock;
 
         public float Strength => _strength;
 
