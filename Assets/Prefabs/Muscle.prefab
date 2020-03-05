@@ -147,7 +147,7 @@ FixedJoint2D:
   m_GameObject: {fileID: 6975162188151439975}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -165,7 +165,7 @@ FixedJoint2D:
   m_GameObject: {fileID: 6975162188151439975}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _length: 0.4
   _contractedLength: 0.2
-  _strength: 0
+  _strengthRange: {x: 5, y: 25}
 --- !u!114 &6975162188151439971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _extendedTime: 0.7
-  _state: 0
+  _resetTime: 1
 --- !u!114 &8727745998572284178
 MonoBehaviour:
   m_ObjectHideFlags: 0

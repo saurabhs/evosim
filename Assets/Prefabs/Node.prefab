@@ -257,7 +257,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &8503486602940466623
 MonoBehaviour:
@@ -271,7 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e9c98f4408abc4cb558ba8509fd372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frictionMinMax: {x: 0.25, y: 1.25}
+  _frictionRange: {x: 1, y: 1.25}
+  _friction: 1
 --- !u!114 &8503486602940466616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,5 +285,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6050a9f95e5bb479effc7e9a8f445f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _extendedTime: 0.5
-  _state: 0
+  _extendedTimeDuration: 0.5
+  _tickLimit: 1
