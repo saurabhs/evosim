@@ -1,23 +1,22 @@
-﻿using UnityEngine;
+﻿using EvoSim.Sim;
+using UnityEngine;
 
 namespace EvoSim.Core
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Node : MonoBehaviour
     {
+        [SerializeField] private GeneticData _data = null;
+
         private Rigidbody2D _rb = null;
         private Muscle _muscle = null;
 
-        [SerializeField, NaughtyAttributes.MinMaxSlider(1f, 3f)]
-        private Vector2 _frictionRange = new Vector2(1, 1.25f);
-
-        [SerializeField] private float _friction = 0.5f;
-        
+        private float _friction = 0.5f;
         private float _forceDir = 0;
 
         private void Awake() => _rb = GetComponent<Rigidbody2D>();
 
-        private void Start() => _friction = Random.Range(_frictionRange.x, _frictionRange.y);
+        private void Start() => _friction = Random.Range(_data.frictionMin, _data.frictionMax);
 
         private void FixedUpdate()
         {
@@ -25,7 +24,6 @@ namespace EvoSim.Core
                 return;
 
             var force = new Vector2((_muscle.Strength * _forceDir) / _friction, 0);
-            print($"{gameObject.name} -> {force}");
             _rb.AddForce(force);
         }
 
