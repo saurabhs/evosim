@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2834dd1d88399d49af0faa8bcedd1b0, type: 3}
+  m_Name: GeneticData
+  m_EditorClassIdentifier: 
+  nodePositionMin: {x: -10, y: 5}
+  nodePositionMax: {x: 10, y: 0}
+  frictionMax: 5
+  frictionMin: 1.1
+  muscleStrengthMax: 75
+  muscleStrengthMin: 5
+  extendedLengthMax: 5
+  extendedLengthMin: 1
+  contractedLengthMax: 1
+  contractedLengthMin: 0.1
+  extendedTimeMax: 0.9
+  extendedTimeMin: 0.3
