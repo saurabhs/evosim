@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace EvoSim.Sim
 {
@@ -17,6 +18,9 @@ namespace EvoSim.Sim
 
         public float _distanceBetweenNodesMin = 1.2f;
         public float _distanceBetweenNodesMax = 2f;
+
+        public int minNodes = 2;
+        public int maxNodes = 6;
 
         /// muscle
 

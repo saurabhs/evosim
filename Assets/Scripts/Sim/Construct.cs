@@ -11,8 +11,6 @@ namespace EvoSim.Sim
         [SerializeField] private GameObject _nodePrefab;
         [SerializeField] private GameObject _musclePrefab;
 
-        [SerializeField] private int _minNodes = 2;
-        [SerializeField] private int _maxNodes = 6;
         private int _nodesAllowed = 2;
 
         private List<GameObject> _nodes = new List<GameObject>();
