@@ -14,19 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     generation: 0
-    nodePositionMin: {x: -3, y: 0}
-    nodePositionMax: {x: 3, y: 2}
-    frictionMax: 10
-    frictionMin: 5
-    _distanceBetweenNodesMin: 1
-    _distanceBetweenNodesMax: 2
-    minNodes: 3
-    maxNodes: 6
-    muscleStrengthMax: 20
+    nodePositionMin: {x: 7, y: 3}
+    nodePositionMax: {x: -7, y: -3}
+    frictionMax: -50
+    frictionMin: 50
+    distanceBetweenNodesMin: 20
+    distanceBetweenNodesMax: -20
+    minNodes: 10
+    maxNodes: 1
+    muscleStrengthMax: -50
     muscleStrengthMin: 50
-    extendedLengthMax: 3
-    extendedLengthMin: 0.75
-    contractedLengthMax: 0.5
-    contractedLengthMin: 0.1
+    extendedLengthMax: -20
+    extendedLengthMin: 20
+    contractedLengthMax: -3.4028235e+38
+    contractedLengthMin: 3.4028235e+38
     extendedTimeMax: 0.9
     extendedTimeMin: 0.3
+  _currenSimData:
+    generation: 0
+    nodePositionMin: {x: 3.4028235e+38, y: 3.4028235e+38}
+    nodePositionMax: {x: -3.4028235e+38, y: -3.4028235e+38}
+    frictionMax: -3.4028235e+38
+    frictionMin: 3.4028235e+38
+    distanceBetweenNodesMin: -3.4028235e+38
+    distanceBetweenNodesMax: 3.4028235e+38
+    minNodes: -2147483648
+    maxNodes: 2147483647
+    muscleStrengthMax: -3.4028235e+38
+    muscleStrengthMin: 3.4028235e+38
+    extendedLengthMax: -3.4028235e+38
+    extendedLengthMin: 3.4028235e+38
+    contractedLengthMax: -3.4028235e+38
+    contractedLengthMin: 3.4028235e+38
+    extendedTimeMax: -3.4028235e+38
+    extendedTimeMin: 3.4028235e+38

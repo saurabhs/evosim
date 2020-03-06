@@ -43,29 +43,29 @@ namespace EvoSim.Sim
         {
             var data = new Data();
 
-            data.nodePositionMax = new Vector2(float.MinValue, float.MinValue);
-            data.nodePositionMin = new Vector2(float.MaxValue, float.MaxValue);
+            data.nodePositionMax = new Vector2(-7, -3);
+            data.nodePositionMin = new Vector2(7, 3);
 
-            data.frictionMax = float.MinValue;
-            data.frictionMin = float.MaxValue;
+            data.frictionMax = -50;
+            data.frictionMin = 50;
 
-            data.maxNodes = int.MaxValue;
-            data.minNodes = int.MinValue;
+            data.maxNodes = 1;
+            data.minNodes = 10;
 
-            data.distanceBetweenNodesMax = float.MaxValue;
-            data.distanceBetweenNodesMin = float.MinValue;
+            data.distanceBetweenNodesMax = -20;
+            data.distanceBetweenNodesMin = 20;
 
-            data.muscleStrengthMax = float.MinValue;
-            data.muscleStrengthMin = float.MaxValue;
+            data.muscleStrengthMax = -50;
+            data.muscleStrengthMin = 50;
 
-            data.extendedLengthMax = float.MinValue;
-            data.extendedLengthMin = float.MaxValue;
+            data.extendedLengthMax = -20;
+            data.extendedLengthMin = 20;
 
             data.contractedLengthMax = float.MinValue;
             data.contractedLengthMin = float.MaxValue;
 
-            data.extendedTimeMax = float.MinValue;
-            data.extendedTimeMin = float.MaxValue;
+            data.extendedTimeMax = 0.9f;
+            data.extendedTimeMin = 0.3f;
 
             return data;
         }
@@ -142,6 +142,9 @@ namespace EvoSim.Sim
             if(nodesCount < _currenSimData.minNodes)
                 _currenSimData.minNodes = nodesCount;
         }
+
+        [NaughtyAttributes.Button]
+        private void ResetSimData() => _data = Data.Init();
 
         public void OnSimulationComplete() => _data = _currenSimData;
     }
