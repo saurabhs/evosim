@@ -7,28 +7,23 @@ namespace EvoSim.Sim
     public class Simulate : MonoBehaviour
     {
         [SerializeField] private GeneticData _data = null;
-
         [SerializeField] private Construct _construct = null;
 
         [SerializeField] private int _population = 1000;
-
         [SerializeField] private int _duration = 15;
-        
         [SerializeField] private int _generationLimit = 20;
 
         private int _runs = 0;
 
-        private WaitForSeconds _waitBeforeRun = null;
-        private WaitForSeconds _waitDuringRun = null;
-
-        private void Start() => Reset();
+        private void Start()
+        {
+            print("Sim::Start");
+            Reset();
+        }
 
         private void Reset()
         {
             _data.InitNewData();
-
-            _waitBeforeRun = new WaitForSeconds(1f);
-            _waitDuringRun = new WaitForSeconds(_duration);
 
             StartCoroutine(Execute());
         }
@@ -37,7 +32,7 @@ namespace EvoSim.Sim
         {
             var creature = _construct.Create();
 
-            yield return _waitDuringRun;
+            yield return new WaitForSeconds(_duration);
 
             var position = 0f;
             var count = 0;
@@ -83,7 +78,6 @@ namespace EvoSim.Sim
         private void OnSimulationComplete()
         {
             _data.OnSimulationComplete();
-
             if(++_data.SimData.generation < _generationLimit)
                 StartCoroutine(Execute());
         }

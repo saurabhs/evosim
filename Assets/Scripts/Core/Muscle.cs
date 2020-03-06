@@ -8,6 +8,9 @@ namespace EvoSim.Core
     {
         [SerializeField] GeneticData _data = null;
 
+        [SerializeField] private float _fakeDelay = 1.5f;
+        private float _delayTimer = 0f;
+
         private Clock _clock;
         private float _length = 0.4f;
         private float _contractedLength = 0.2f;
@@ -19,7 +22,7 @@ namespace EvoSim.Core
 
         private void Awake() => _clock = GetComponent<Clock>();
 
-        private void Start()
+        private void OnEnable()
         {
             _length = Random.Range(_data.SimData.extendedLengthMin, _data.SimData.extendedLengthMax);
             _contractedLength = Random.Range(_data.SimData.contractedLengthMin, _data.SimData.contractedLengthMax);
@@ -28,6 +31,12 @@ namespace EvoSim.Core
 
         private void FixedUpdate()
         {
+            if(_delayTimer < _fakeDelay)
+            {
+                _delayTimer += Time.deltaTime;
+                return;
+            }
+
             transform.localScale =
                 Vector3.Lerp
                 (

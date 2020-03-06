@@ -78,7 +78,7 @@ namespace EvoSim.Sim
                 var muscleGO = Instantiate(_musclePrefab, mid, Quaternion.identity, _parent.transform);
                 muscleGO.name = $"m_{from.name}_{to.name}";
 
-                muscleGO.transform.localScale = new Vector3(Mathf.Abs(d.x), 0.125f, 1);
+                muscleGO.transform.localScale = new Vector3(Vector2.Distance(to.transform.position, from.transform.position), 0.125f, 1);
 
                 var joints = muscleGO.GetComponents<Joint2D>();
                 joints[0].connectedBody = from.GetComponent<Rigidbody2D>();
@@ -86,6 +86,7 @@ namespace EvoSim.Sim
 
                 var angle = Mathf.Atan2(to.transform.position.y - from.transform.position.y,
                     to.transform.position.x - from.transform.position.x) * (180 / Mathf.PI);
+
                 muscleGO.transform.rotation = Quaternion.Euler(0, 0, angle);
             }
         }

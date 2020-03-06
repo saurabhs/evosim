@@ -32,19 +32,19 @@ MonoBehaviour:
     extendedTimeMin: 0.3
   _currenSimData:
     generation: 0
-    nodePositionMin: {x: 7, y: 3}
-    nodePositionMax: {x: -7, y: -3}
-    frictionMax: -50
-    frictionMin: 50
-    distanceBetweenNodesMin: 20
-    distanceBetweenNodesMax: -20
-    minNodes: 10
-    maxNodes: 1
-    muscleStrengthMax: -50
-    muscleStrengthMin: 50
-    extendedLengthMax: -20
-    extendedLengthMin: 20
-    contractedLengthMax: -3.4028235e+38
-    contractedLengthMin: 3.4028235e+38
+    nodePositionMin: {x: -3, y: 2}
+    nodePositionMax: {x: 3, y: 0}
+    frictionMax: 15
+    frictionMin: 5
+    distanceBetweenNodesMin: 1.25
+    distanceBetweenNodesMax: 2.5
+    minNodes: 3
+    maxNodes: 6
+    muscleStrengthMax: 50
+    muscleStrengthMin: 20
+    extendedLengthMax: 2.5
+    extendedLengthMin: 0.4
+    contractedLengthMax: 0.1
+    contractedLengthMin: 0.05
     extendedTimeMax: 0.9
     extendedTimeMin: 0.3

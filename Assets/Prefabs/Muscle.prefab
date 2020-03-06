@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 077b41a54f82c1c418810d4e07f9f88e, type: 2}
+  _fakeDelay: 1.5
+  _delayTimer: 0
 --- !u!114 &6975162188151439971
 MonoBehaviour:
   m_ObjectHideFlags: 0

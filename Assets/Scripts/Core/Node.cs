@@ -11,6 +11,9 @@ namespace EvoSim.Core
         private Rigidbody2D _rb = null;
         private Muscle _muscle = null;
 
+        [SerializeField] private float _fakeDelay = 1.5f;
+        private float _delayTimer = 0;
+
         private float _friction = 0.5f;
         private float _forceDir = 0;
 
@@ -22,8 +25,11 @@ namespace EvoSim.Core
 
         private void FixedUpdate()
         {
-            if(_muscle == null)
+            if(_muscle == null || _delayTimer < _fakeDelay)
+            {
+                _delayTimer += Time.deltaTime;
                 return;
+            }
 
             var force = new Vector2((_muscle.Strength * _forceDir) / _friction, 0);
             _rb.AddForce(force);
