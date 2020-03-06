@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace EvoSim.Sim
@@ -12,14 +13,20 @@ namespace EvoSim.Sim
         [SerializeField] private int _population = 1000;
 
         [SerializeField] private int _duration = 15;
+        
+        [SerializeField] private int _generationLimit = 20;
 
         private int _runs = 0;
 
         private WaitForSeconds _waitBeforeRun = null;
         private WaitForSeconds _waitDuringRun = null;
 
-        private void Start()
+        private void Start() => Reset();
+
+        private void Reset()
         {
+            _data.InitNewData();
+
             _waitBeforeRun = new WaitForSeconds(1f);
             _waitDuringRun = new WaitForSeconds(_duration);
 
@@ -36,9 +43,6 @@ namespace EvoSim.Sim
             var count = 0;
 
             GetCombinedPositionAndCount(creature, ref position, ref count);
-
-            print(position + ", " + count);
-
             AddToDatabase(creature, position / count);
             Next();
         }
@@ -60,6 +64,7 @@ namespace EvoSim.Sim
             if(displacement <= 0)
                 return;
 
+            print($"Moved {displacement}");
             _data.ProcessAndAddToDB(go, displacement);
         }
 
@@ -70,6 +75,16 @@ namespace EvoSim.Sim
                 Destroy(go);
 
             if(++_runs < _population)
+                StartCoroutine(Execute());
+            else
+                OnSimulationComplete();
+        }
+
+        private void OnSimulationComplete()
+        {
+            _data.OnSimulationComplete();
+
+            if(++_data.SimData.generation < _generationLimit)
                 StartCoroutine(Execute());
         }
     }
