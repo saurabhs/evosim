@@ -13,7 +13,6 @@ namespace EvoSim.Core
     public class Clock : MonoBehaviour
     {
         [SerializeField] private float _extendedTimeDuration = 0.7f;
-
         [SerializeField] private float _tickLimit = 1f;
 
         private Vector2 _extendedTimeRange = new Vector2(0, 0.7f);
@@ -21,9 +20,9 @@ namespace EvoSim.Core
         [SerializeField] private EState _state = EState.None;
 
         private float _tick = 0f;
-
         private float _circularTickMax = 0f;
 
+        public float ExtendedTimeDuration => _extendedTimeDuration;
         public EState State => _state;
 
         private void Start()

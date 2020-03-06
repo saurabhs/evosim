@@ -13,15 +13,17 @@ namespace EvoSim.Core
         private float _contractedLength = 0.2f;
         private float _strength = 0f;
 
+        public float Length => _length;
+        public float ContractedLength => _contractedLength;
         public float Strength => _strength;
 
         private void Awake() => _clock = GetComponent<Clock>();
 
         private void Start()
         {
-            _length = Random.Range(_data.extendedLengthMin, _data.extendedLengthMax);
-            _contractedLength = Random.Range(_data.contractedLengthMin, _data.contractedLengthMax);
-            _strength = Random.Range(_data.muscleStrengthMin, _data.muscleStrengthMax);
+            _length = Random.Range(_data.SimData.extendedLengthMin, _data.SimData.extendedLengthMax);
+            _contractedLength = Random.Range(_data.SimData.contractedLengthMin, _data.SimData.contractedLengthMax);
+            _strength = Random.Range(_data.SimData.muscleStrengthMin, _data.SimData.muscleStrengthMax);
         }
 
         private void FixedUpdate()

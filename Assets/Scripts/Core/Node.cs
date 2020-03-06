@@ -14,9 +14,11 @@ namespace EvoSim.Core
         private float _friction = 0.5f;
         private float _forceDir = 0;
 
+        public float Friction => _friction;
+
         private void Awake() => _rb = GetComponent<Rigidbody2D>();
 
-        private void Start() => _friction = Random.Range(_data.frictionMin, _data.frictionMax);
+        private void Start() => _friction = Random.Range(_data.SimData.frictionMin, _data.SimData.frictionMax);
 
         private void FixedUpdate()
         {
