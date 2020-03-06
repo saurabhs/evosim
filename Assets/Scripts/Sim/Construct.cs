@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using EvoSim.Core;
 using UnityEngine;
 
 namespace EvoSim.Sim
@@ -14,23 +13,22 @@ namespace EvoSim.Sim
         private int _nodesAllowed = 2;
 
         private List<GameObject> _nodes = new List<GameObject>();
-        private List<Muscle> _muscle = new List<Muscle>();
 
         private GameObject _parent = null;
 
         [NaughtyAttributes.Button]
-        public void Create()
+        public GameObject Create()
         {
-            if(_parent != null)
-                Destroy(_parent);
-
             _parent = new GameObject("Creature");
-            _nodesAllowed = Random.Range(_minNodes, _maxNodes);
+            _parent.tag = "Creature";
+            _nodesAllowed = Random.Range(_data.minNodes, _data.maxNodes);
 
             _nodes.Clear();
 
             CreateNode();
             CreateMuslce();
+
+            return _parent;
         }
 
         private void CreateNode()
@@ -46,7 +44,7 @@ namespace EvoSim.Sim
 
                 foreach(var p in positions)
                 {
-                    if(Mathf.Abs(p.x - pos.x) < 1.5f)
+                    if(Vector2.Distance(p, pos) < 1.5f)
                     {
                         inValidPostion = true;
                         break;
