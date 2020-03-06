@@ -12,9 +12,9 @@ namespace EvoSim.Core
         {
             _muscle = GetComponent<Muscle>();
             _joints = GetComponents<FixedJoint2D>();
-
-            SetMuscleToNode();
         }
+
+        private void Start() => SetMuscleToNode();
 
         private void SetMuscleToNode()
         {
