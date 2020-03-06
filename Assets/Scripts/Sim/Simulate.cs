@@ -17,7 +17,8 @@ namespace EvoSim.Sim
 
         private void Start()
         {
-            print("Sim::Start");
+            DeleteCreature();
+
             Reset();
         }
 
@@ -65,14 +66,19 @@ namespace EvoSim.Sim
 
         private void Next()
         {
-            var go = GameObject.FindGameObjectWithTag("Creature");
-            if(go != null)
-                Destroy(go);
+            DeleteCreature();
 
             if(++_runs < _population)
                 StartCoroutine(Execute());
             else
                 OnSimulationComplete();
+        }
+
+        private void DeleteCreature()
+        {
+            var go = GameObject.FindGameObjectWithTag("Creature");
+            if(go != null)
+                DestroyImmediate(go);
         }
 
         private void OnSimulationComplete()

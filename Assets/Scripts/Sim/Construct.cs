@@ -19,9 +19,11 @@ namespace EvoSim.Sim
         [NaughtyAttributes.Button]
         public GameObject Create()
         {
+#if UNITY_EDITOR
             var go = GameObject.FindGameObjectWithTag("Creature");
             if(go != null)
-                Destroy(go);
+                DestroyImmediate(go);
+#endif
 
             _parent = new GameObject("Creature");
             _parent.tag = "Creature";
