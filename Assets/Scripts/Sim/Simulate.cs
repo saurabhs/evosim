@@ -22,13 +22,52 @@ namespace EvoSim.Sim
         {
             _waitBeforeRun = new WaitForSeconds(1f);
             _waitDuringRun = new WaitForSeconds(_duration);
+
+            StartCoroutine(Execute());
         }
 
         public IEnumerator Execute()
         {
-            _construct.Create();
+            var creature = _construct.Create();
 
             yield return _waitDuringRun;
+
+            var position = 0f;
+            var count = 0;
+
+            GetCombinedPositionAndCount(creature, ref position, ref count);
+
+            print(position + ", " + count);
+
+            AddToDatabase(creature, position / count);
+            Next();
+        }
+
+        private void GetCombinedPositionAndCount(GameObject go, ref float position, ref int count)
+        {
+            foreach(Transform t in go.transform)
+            {
+                if(!t.gameObject.name.Contains("m_"))
+                {
+                    count++;
+                    position += t.position.x;
+                }
+            }
+        }
+
+        private void AddToDatabase(GameObject go, float displacement)
+        {
+            if(displacement <= 0)
+                return;
+
+            _data.ProcessAndAddToDB(go, displacement);
+        }
+
+        private void Next()
+        {
+            var go = GameObject.FindGameObjectWithTag("Creature");
+            if(go != null)
+                Destroy(go);
 
             if(++_runs < _population)
                 StartCoroutine(Execute());
