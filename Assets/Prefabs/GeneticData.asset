@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2834dd1d88399d49af0faa8bcedd1b0, type: 3}
   m_Name: GeneticData
   m_EditorClassIdentifier: 
-  nodePositionMin: {x: -10, y: 5}
-  nodePositionMax: {x: 10, y: 0}
+  generation: 0
+  nodePositionMin: {x: -5, y: 2}
+  nodePositionMax: {x: 5, y: 0}
   frictionMax: 5
   frictionMin: 1.1
   muscleStrengthMax: 75

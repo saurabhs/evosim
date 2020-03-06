@@ -15,6 +15,9 @@ namespace EvoSim.Sim
         public float frictionMax = 2f;
         public float frictionMin = 2f;
 
+        public float _distanceBetweenNodesMin = 1.2f;
+        public float _distanceBetweenNodesMax = 2f;
+
         /// muscle
 
         public float muscleStrengthMax = 20f;
@@ -30,5 +33,11 @@ namespace EvoSim.Sim
 
         public float extendedTimeMax = 0.9f;
         public float extendedTimeMin = 0.3f;
+
+        /// utils
+
+        public static float RandomizeFloat(float min, float max) => Random.Range(min, max);
+
+        public static Vector2 RandomizeVector2(Vector2 min, Vector2 max) => new Vector2(RandomizeFloat(min.x, max.x), RandomizeFloat(min.y, max.y));
     }
 }
