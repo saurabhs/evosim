@@ -19,6 +19,10 @@ namespace EvoSim.Sim
         [NaughtyAttributes.Button]
         public GameObject Create()
         {
+            var go = GameObject.FindGameObjectWithTag("Creature");
+            if(go != null)
+                Destroy(go);
+
             _parent = new GameObject("Creature");
             _parent.tag = "Creature";
             _nodesAllowed = Random.Range(_data.SimData.minNodes, _data.SimData.maxNodes);
