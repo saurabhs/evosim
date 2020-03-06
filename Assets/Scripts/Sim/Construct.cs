@@ -21,7 +21,7 @@ namespace EvoSim.Sim
         {
             _parent = new GameObject("Creature");
             _parent.tag = "Creature";
-            _nodesAllowed = Random.Range(_data.minNodes, _data.maxNodes);
+            _nodesAllowed = Random.Range(_data.SimData.minNodes, _data.SimData.maxNodes);
 
             _nodes.Clear();
 
@@ -38,13 +38,13 @@ namespace EvoSim.Sim
             {
                 var inValidPostion = false;
                 var pos = new Vector2(
-                    Random.Range(_data.nodePositionMin.x, _data.nodePositionMax.x),
-                    Mathf.Floor(Random.Range(_data.nodePositionMin.y, _data.nodePositionMax.y))
+                    Random.Range(_data.SimData.nodePositionMin.x, _data.SimData.nodePositionMax.x),
+                    Mathf.Floor(Random.Range(_data.SimData.nodePositionMin.y, _data.SimData.nodePositionMax.y))
                 );
 
                 foreach(var p in positions)
                 {
-                    if(Vector2.Distance(p, pos) < 1.5f)
+                    if(Vector2.Distance(p, pos) < GeneticData.RandomizeFloat(_data.SimData.distanceBetweenNodesMin, _data.SimData.distanceBetweenNodesMax))
                     {
                         inValidPostion = true;
                         break;
