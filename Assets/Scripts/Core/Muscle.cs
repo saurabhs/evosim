@@ -24,16 +24,15 @@ namespace EvoSim.Core
             _strength = Random.Range(_data.muscleStrengthMin, _data.muscleStrengthMax);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            if(_clock.State == EState.Extended)
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, new Vector2(_length, transform.localScale.y), _strength * Time.deltaTime);
-            }
-            else
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, new Vector2(_contractedLength, transform.localScale.y), _strength * Time.deltaTime);
-            }
+            transform.localScale =
+                Vector3.Lerp
+                (
+                    transform.localScale,
+                    new Vector2(_clock.State == EState.Extended ? _length : _contractedLength, transform.localScale.y),
+                    _strength * Time.deltaTime
+                );
         }
     }
 }
