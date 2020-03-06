@@ -43,29 +43,60 @@ namespace EvoSim.Sim
         {
             var data = new Data();
 
-            data.nodePositionMax = new Vector2(-7, -3);
-            data.nodePositionMin = new Vector2(7, 3);
+            data.nodePositionMax = new Vector2(3, 0);
+            data.nodePositionMin = new Vector2(-3, 2);
 
-            data.frictionMax = -50;
-            data.frictionMin = 50;
+            data.frictionMax = 15;
+            data.frictionMin = 5;
 
-            data.maxNodes = 1;
-            data.minNodes = 10;
+            data.maxNodes = 6;
+            data.minNodes = 3;
 
-            data.distanceBetweenNodesMax = -20;
-            data.distanceBetweenNodesMin = 20;
+            data.distanceBetweenNodesMax = 2.5f;
+            data.distanceBetweenNodesMin = 1.25f;
 
-            data.muscleStrengthMax = -50;
-            data.muscleStrengthMin = 50;
+            data.muscleStrengthMax = 50;
+            data.muscleStrengthMin = 20;
 
-            data.extendedLengthMax = -20;
-            data.extendedLengthMin = 20;
+            data.extendedLengthMax = 2.5f;
+            data.extendedLengthMin = 0.4f;
 
             data.contractedLengthMax = float.MinValue;
             data.contractedLengthMin = float.MaxValue;
 
             data.extendedTimeMax = 0.9f;
             data.extendedTimeMin = 0.3f;
+
+            return data;
+        }
+
+        public static Data InitGarbage()
+        {
+            var data = new Data();
+
+            data.nodePositionMax = new Vector2(float.MinValue, float.MinValue);
+            data.nodePositionMin = new Vector2(float.MaxValue, float.MaxValue);
+
+            data.frictionMax = float.MinValue;
+            data.frictionMin = float.MaxValue;
+
+            data.maxNodes = int.MinValue;
+            data.minNodes = int.MaxValue;
+
+            data.distanceBetweenNodesMax = float.MinValue;
+            data.distanceBetweenNodesMin = float.MaxValue;
+
+            data.muscleStrengthMax = float.MinValue;
+            data.muscleStrengthMin = float.MaxValue;
+
+            data.extendedLengthMax = float.MinValue;
+            data.extendedLengthMin = float.MaxValue;
+
+            data.contractedLengthMax = float.MinValue;
+            data.contractedLengthMin = float.MaxValue;
+
+            data.extendedTimeMax = float.MinValue;
+            data.extendedTimeMin = float.MaxValue;
 
             return data;
         }
