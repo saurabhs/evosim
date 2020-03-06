@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 83be63163290e844ebb8ee19b10ef633, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e9c98f4408abc4cb558ba8509fd372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frictionRange: {x: 1, y: 1.25}
+  _data: {fileID: 11400000, guid: 077b41a54f82c1c418810d4e07f9f88e, type: 2}
   _friction: 1
 --- !u!114 &8503486602940466616
 MonoBehaviour:
@@ -287,3 +287,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _extendedTimeDuration: 0.5
   _tickLimit: 1
+  _state: 0

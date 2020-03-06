@@ -147,7 +147,7 @@ FixedJoint2D:
   m_GameObject: {fileID: 6975162188151439975}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -165,7 +165,7 @@ FixedJoint2D:
   m_GameObject: {fileID: 6975162188151439975}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -186,9 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5e3890647d97d438839e0b40c1bde1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _length: 0.4
-  _contractedLength: 0.2
-  _strengthRange: {x: 5, y: 25}
+  _data: {fileID: 11400000, guid: 077b41a54f82c1c418810d4e07f9f88e, type: 2}
 --- !u!114 &6975162188151439971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,8 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6050a9f95e5bb479effc7e9a8f445f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _extendedTime: 0.7
-  _resetTime: 1
+  _extendedTimeDuration: 0.7
+  _tickLimit: 1
+  _state: 0
 --- !u!114 &8727745998572284178
 MonoBehaviour:
   m_ObjectHideFlags: 0
